@@ -1,0 +1,32 @@
+import argparse
+
+
+def parse():
+    parser = argparse.ArgumentParser(description='PyTorch implementation')
+    parser.add_argument('--seed', type=int, default=42, help='Random seed.')
+    parser.add_argument('--train', default=0, type=int, help='train(default) or evaluate')
+    parser.add_argument('--test', default=True, type=int, help='train(default) or evaluate')
+    parser.add_argument('--validate', default=True, type=int, help=' evaluate')
+    parser.add_argument('--folds', default=5, type=int,help='For cross validation, specifies which fold will be used. All folds are used if set to 11 (default: 11)')
+    parser.add_argument('--minibatch_size', type=int, default=32)
+    parser.add_argument('--atlas', type=str, default=['AAL-116','CC200','HO-96','Dosenbach-160','Zalesky-980'])
+    parser.add_argument('--dataset', type=str, default='ABIDE2',choices=['ABIDE1', 'ABIDE2', 'ADHD', 'MDD'])
+    # parser.add_argument('--target_feature', type=str, default='Task')
+    parser.add_argument('--topk', type=int, default=10)
+    parser.add_argument('--kernel_size', type=int, default=3)
+    parser.add_argument('--window_size', type=int, default=30)
+    parser.add_argument('--window_stride', type=int, default=5)
+    parser.add_argument('--dynamic_length', type=int, default=100)
+    parser.add_argument('--clip_grad', type=float, default=0.0, help='Gradient Clipping in Fusion model')
+    parser.add_argument('-readout', type=str, default='baro',help='readout type in Fusion model')
+    parser.add_argument('-cls_token', type=str, default='sum', help='cls_token in Fusion model')
+    parser.add_argument('-hidden_dim', type=int, default=16, help='')
+    parser.add_argument('--max_lr', type=float, default=0.001)
+    parser.add_argument('--lr', default=0.0001, type=float, help='initial learning rate for Fusion model')
+    parser.add_argument('--wd', default=0, type=float, help='weight decay for  Fusion model')
+    parser.add_argument('--num_epochs', default=200, type=int, help='number of epochs for training Fusion model')
+    parser.add_argument('--nclass', type=int, default=2, help='number of classes')
+    parser.add_argument('--analyze', action='store_true')
+    parser.add_argument('--num_workers', type=int, default=4)
+    argv = parser.parse_args()
+    return argv

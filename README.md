@@ -1,5 +1,6 @@
 # LG-MDGL
 Code for Local to  Global Multi-scale Dynamic Graph Learning
+
 ![image](https://github.com/user-attachments/assets/be7d6ef0-0f50-45c6-9a39-a03de6089af9)
 
 (1) The L-MDGL module captured the local spatiotemporal dynamics within a single time window by temporal convolution constructs, while the G-MDGL module captured the global spatiotemporal dynamics with global cross-scale topological dynamic fusion. 
